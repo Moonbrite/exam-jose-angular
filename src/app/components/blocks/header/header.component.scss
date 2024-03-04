@@ -1,3 +1,10 @@
 .dropdown-menu[data-bs-popper] {
-  left: -75px !important;
+  left: -45px !important;
+}
+
+.navbar-brand {
+  color:#fe5400 !important;
+ span {
+   display: flex;
+ }
 }
