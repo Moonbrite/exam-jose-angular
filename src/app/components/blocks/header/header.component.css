@@ -1,0 +1,5 @@
+.dropdown-menu[data-bs-popper] {
+  left: -75px !important;
+}
+
+/*# sourceMappingURL=header.component.css.map */
