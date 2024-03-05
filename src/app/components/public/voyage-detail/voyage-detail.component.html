@@ -1,1 +1,39 @@
-<p>voyage-detail works!</p>
+<section>
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <div *ngIf="!isLoading" id="carouselExample" class="carousel slide container mt-5">
+    <div class="carousel-inner">
+      <div class="carousel-item active" *ngFor="let image of voyage?.pictures">
+          <img src="{{image.src}}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ <div>
+   <div *ngIf="!isLoading" class="card" style="width: 18rem;">
+     <div *ngIf="voyage" class="card-body">
+       <h5 class="card-title">{{voyage.destination}}</h5>
+       <h6 class="card-subtitle mb-2 text-body-secondary">{{voyage.nbStar}}</h6>
+       <p class="card-text">Le type de se voyage et : {{voyage.type}} </p>
+     </div>
+   </div>
+   <iframe
+     width="100%"
+     height="250"
+     frameborder="0"
+     scrolling="no"
+     marginheight="0"
+     marginwidth="0"
+     [src]="mapUrl">
+   </iframe>
+ </div>
+
+</section>
+

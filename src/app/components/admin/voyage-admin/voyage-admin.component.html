@@ -1,1 +1,30 @@
-<p>voyage-admin works!</p>
+<app-loader *ngIf="isLoading"></app-loader>
+
+<section *ngIf="!isLoading" class="container">
+  <div>
+    <button class="btn btn-light" [routerLink]="['/admin/add']">Ajout d'un voyage</button>
+  </div>
+  <table class="table" >
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Supp</th>
+      <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="voyages">
+    <tr *ngFor="let voyage of voyages">
+      <th scope="row">{{voyage.id}}</th>
+      <td>{{voyage.destination}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteOne(voyage.id)">Sup</button>
+      </td>
+      <td>
+        <button class="btn btn-warning" [routerLink]="['/admin/edit/',voyage.id]" >Edit</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+

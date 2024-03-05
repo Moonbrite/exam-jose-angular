@@ -1,1 +1,64 @@
-<p>voyage-ajout works!</p>
+<div class="example-container from-add">
+  <h1 class="text-center">Ajout d'un voyage</h1>
+  <form *ngIf="voyage" (ngSubmit)="submitForm(voyage)" action="" class="d-flex flex-column container" #formVoyage="ngForm">
+
+    <mat-form-field>
+      <mat-label>Destination</mat-label>
+      <input name="destination" #destination="ngModel" matInput placeholder="destination" [(ngModel)]="voyage.destination" required>
+      <mat-error *ngIf="!destination.valid">Veuiller entrer une destination</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>lattitude</mat-label>
+      <input name="lattitude" #lattitude="ngModel" type="number" matInput placeholder="lattitude" [(ngModel)]="voyage.lattitude" required>
+      <mat-error *ngIf="!lattitude.valid">Veuiller entrer une lattitude</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>longitude</mat-label>
+      <input name="prix" #prix="ngModel" type="number" matInput placeholder="prix" [(ngModel)]="voyage.longitude" required>
+      <mat-error *ngIf="!prix.valid">Veuiller entrer une longitude</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre d'étoiles</mat-label>
+      <input name="nbStar" #nbStar="ngModel" type="number" matInput placeholder="Nombre d'étoiles" [(ngModel)]="voyage.nbStar" required>
+      <mat-error *ngIf="!nbStar.valid">Veuiller entrer une longitude</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Picture src</mat-label>
+      <input name="mainPictureSrc" #pictureSrc="ngModel" type="text" matInput placeholder="Main pictures" [ngModel]="voyage.mainPicture?.src" (ngModelChange)="onMainPictureChangeSrc($event)" required>
+      <mat-error *ngIf="!pictureSrc.valid">Veuiller entrer une source Image principale </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Main picture Alt</mat-label>
+      <input name="mainPictureAlt" #pictureAlt="ngModel" type="text" matInput placeholder="Main pictures" [ngModel]="voyage.mainPicture?.alt" (ngModelChange)="onMainPictureChangeAlt($event)" required>
+      <mat-error *ngIf="!pictureAlt.valid">Veuiller entrer un Alt Image principale </mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngFor="let picture of voyage.pictures; let i = index">
+      <mat-label>Picture {{i+1}} src</mat-label>
+      <input name="pictureSrc{{i}}" [(ngModel)]="picture.src" matInput placeholder="Picture src" required>
+    </mat-form-field>
+
+    <mat-form-field *ngFor="let picture of voyage.pictures; let i = index">
+      <mat-label>Picture {{i+1}} Alt</mat-label>
+      <input name="pictureAlt{{i}}" [(ngModel)]="picture.alt" matInput placeholder="Picture Alt" required>
+    </mat-form-field>
+
+    <button class="btn btn-primary mb-4" type="button" (click)="addPicture()">Ajouter une image</button>
+
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select name="type" [(ngModel)]="voyage.type" placeholder="type">
+        <ng-container>
+          <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <button class="btn btn-success" [disabled]="!formVoyage.valid" type="submit">Soummetre</button>
+  </form>
+</div>

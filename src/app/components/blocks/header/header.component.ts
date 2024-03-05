@@ -14,4 +14,7 @@ import {RouterLink} from "@angular/router";
 export class HeaderComponent {
 
 
+  logOut() {
+    window.localStorage.getItem("token")
+  }
 }

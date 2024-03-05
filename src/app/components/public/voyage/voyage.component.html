@@ -1,2 +1,13 @@
-<p>voyage works!</p>
-<app-voyage-slider></app-voyage-slider>
+<app-loader *ngIf="isLoading"></app-loader>
+
+
+<section *ngIf="!isLoading" class="container d-flex gap-3 flex-wrap">
+  <div *ngFor="let voyage of voyages" class="card" style="width: 18rem;">
+    <img src="{{voyage.mainPicture?.src}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{voyage.destination}}</h5>
+      <p class="card-text">{{voyage.nbStar}} Etoiles</p>
+      <a [routerLink]="['voyage/detail/', voyage.id]" class="btn btn-primary">Detail</a>
+    </div>
+  </div>
+</section>

@@ -25,12 +25,12 @@
               Menu admin
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" [routerLink]="['admin']" >Admin</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/admin/add']" >Ajout voyage</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+              <li><a class="dropdown-item" (click)="logOut()" >Se déconnecter</a></li>
             </ul>
           </li>
         </ul>
