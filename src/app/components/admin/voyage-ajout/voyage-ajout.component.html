@@ -44,6 +44,7 @@
     <mat-form-field *ngFor="let picture of voyage.pictures; let i = index">
       <mat-label>Picture {{i+1}} src</mat-label>
       <input name="pictureSrc{{i}}" [(ngModel)]="picture.src" matInput placeholder="Picture src">
+
     </mat-form-field>
 
     <mat-form-field *ngFor="let picture of voyage.pictures; let i = index">

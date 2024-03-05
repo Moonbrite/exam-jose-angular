@@ -36,7 +36,7 @@ export class VoyageDetailComponent implements OnInit{
     let id:number = parseInt(<string>this.activatedRoute.snapshot.paramMap.get("id"));
     this.voyageService.getOne(id).subscribe(data => {
       this.voyage = data;
-      this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?q=${this.voyage?.longitude},${this.voyage?.lattitude}&hl=es&z=14&output=embed`);
+      this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?q=${this.voyage?.longitude},${this.voyage?.lattitude}&hl=fr&z=14&output=embed`);
       this.isLoading = false;
     })
   }
