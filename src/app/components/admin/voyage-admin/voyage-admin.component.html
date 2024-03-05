@@ -8,7 +8,7 @@
     <thead>
     <tr>
       <th scope="col">id</th>
-      <th scope="col">Nom</th>
+      <th scope="col">Déstination</th>
       <th scope="col">Supp</th>
       <th scope="col">Edit</th>
     </tr>
@@ -18,10 +18,24 @@
       <th scope="row">{{voyage.id}}</th>
       <td>{{voyage.destination}}</td>
       <td>
-        <button class="btn btn-danger" (click)="deleteOne(voyage.id)">Sup</button>
+        <button class="btn btn-danger" (click)="deleteMusicModal('0ms', '0ms',voyage.id)">
+          <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.25 5.625H3.75"></path>
+            <path d="M9.75 9.75v6"></path>
+            <path d="M14.25 9.75v6"></path>
+            <path d="M18.75 5.625V19.5a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V5.625"></path>
+            <path d="M15.75 5.625v-2.25a1.5 1.5 0 0 0-1.5-1.5h-4.5a1.5 1.5 0 0 0-1.5 1.5v2.25"></path>
+          </svg>
+        </button>
       </td>
       <td>
-        <button class="btn btn-warning" [routerLink]="['/admin/edit/',voyage.id]" >Edit</button>
+        <button class="btn btn-warning" [routerLink]="['/admin/edit/',voyage.id]" >
+          <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="m4.125 14.625 5.25 5.25"></path>
+          <path d="M8.69 20.252H4.5a.75.75 0 0 1-.75-.75v-4.19a.74.74 0 0 1 .216-.526l11.25-11.25a.75.75 0 0 1 1.068 0l4.182 4.181a.75.75 0 0 1 0 1.07l-11.25 11.25a.74.74 0 0 1-.525.215v0Z"></path>
+          <path d="M12.75 6 18 11.25"></path>
+          <path d="M15.375 8.625 6.75 17.25"></path>
+        </svg></button>
       </td>
     </tr>
     </tbody>

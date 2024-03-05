@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {VoyageService} from "../../../services/voyage.service";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Voyage} from "../../../models/voyage";
 import {NgForOf, NgIf} from "@angular/common";
@@ -22,7 +22,8 @@ import {Image} from "../../../models/image";
     MatInput,
     MatSelect,
     NgForOf,
-    MatOption
+    MatOption,
+    RouterLink
   ],
   templateUrl: './voyage-ajout.component.html',
   styleUrl: './voyage-ajout.component.scss'
@@ -43,10 +44,8 @@ export class VoyageAjoutComponent {
 
 
   submitForm(voyage:Voyage) {
-    console.log(voyage)
     this.voyageService.add(voyage).subscribe(
       data => {
-        console.log(data)
         this._snackBar.open("Voyage ajouter","close")
         return this.router.navigate(['/admin'])
       }

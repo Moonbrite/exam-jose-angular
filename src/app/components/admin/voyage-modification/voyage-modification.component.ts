@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {VoyageService} from "../../../services/voyage.service";
 import {Voyage} from "../../../models/voyage";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -24,7 +24,8 @@ import {LoaderComponent} from "../../blocks/loader/loader.component";
     NgForOf,
     NgIf,
     ReactiveFormsModule,
-    LoaderComponent
+    LoaderComponent,
+    RouterLink
   ],
   templateUrl: './voyage-modification.component.html',
   styleUrl: './voyage-modification.component.scss'
@@ -59,6 +60,15 @@ export class VoyageModificationComponent implements OnInit{
         return this.router.navigate(['/admin'])
       }
     )
+  }
+
+  addPicture() {
+    if (this.voyage) {
+      if (!this.voyage.pictures) {
+        this.voyage.pictures = [];
+      }
+      this.voyage.pictures.push({ src: '', alt: '' });
+    }
   }
 
 
