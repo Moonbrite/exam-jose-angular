@@ -1,6 +1,7 @@
 import {Image} from "./image";
 
 export class Voyage {
+
   constructor(
     id?: number,
     destination?: string,
