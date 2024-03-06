@@ -3,11 +3,11 @@
 
   <app-loader *ngIf="isLoading"></app-loader>
 
+  <div *ngIf="!isLoading" style="margin-top: 75px">
+    <a class="ms-3 mb-3 link-underline" [routerLink]="['']"><--- Retour à l'Acueil</a>
+  </div>
 
   <div *ngIf="!isLoading" id="carouselExample" class="carousel slide container">
-    <div *ngIf="!isLoading">
-      <a class="ms-3 mb-3 link-underline" [routerLink]="['']"><--- Retour à l'Acueil</a>
-    </div>
     <div class="carousel-inner">
       <div class="carousel-item active" *ngFor="let image of voyage?.pictures">
           <img src="{{image.src}}" class="d-block w-100" alt="...">
