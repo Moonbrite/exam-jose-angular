@@ -41,16 +41,18 @@
       <mat-error *ngIf="!pictureAlt.valid">Veuiller entrer un Alt Image principale </mat-error>
     </mat-form-field>
 
-    <mat-form-field *ngFor="let picture of voyage.pictures; let i = index">
-      <mat-label>Picture {{i+1}} src</mat-label>
-      <input name="pictureSrc{{i}}" [(ngModel)]="picture.src" matInput placeholder="Picture src">
+    <ng-container  *ngFor="let picture of voyage.pictures; let i = index">
+      <mat-form-field>
+        <mat-label>Picture {{i+1}} src</mat-label>
+        <input name="pictureSrc{{i}}" [(ngModel)]="picture.src" matInput placeholder="Picture src">
+      </mat-form-field>
 
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Picture {{i+1}} Alt</mat-label>
+        <input name="pictureAlt{{i}}" [(ngModel)]="picture.alt" matInput placeholder="Picture Alt">
+      </mat-form-field>
+    </ng-container>
 
-    <mat-form-field *ngFor="let picture of voyage.pictures; let i = index">
-      <mat-label>Picture {{i+1}} Alt</mat-label>
-      <input name="pictureAlt{{i}}" [(ngModel)]="picture.alt" matInput placeholder="Picture Alt">
-    </mat-form-field>
 
     <button class="btn btn-primary mb-4" type="button" (click)="addPicture()">Ajouter une image</button>
 
