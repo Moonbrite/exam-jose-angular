@@ -24,7 +24,7 @@
     <mat-form-field>
       <mat-label>Nombre d'étoiles</mat-label>
       <input name="nbStar" #nbStar="ngModel" type="number" matInput placeholder="Nombre d'étoiles" [(ngModel)]="voyage.nbStar" min="0" max="5" required>
-      <mat-error *ngIf="!nbStar.valid">Veuiller entrer une longitude</mat-error>
+      <mat-error *ngIf="!nbStar.valid">Veuiller entrer un nombre d'étoiles valide entre 0 et 5</mat-error>
     </mat-form-field>
 
     <mat-form-field>

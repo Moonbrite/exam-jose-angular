@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoaderComponent} from "../../blocks/loader/loader.component";
 import {NgForOf, NgIf} from "@angular/common";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {VoyageService} from "../../../services/voyage.service";
 import {Voyage} from "../../../models/voyage";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
@@ -12,7 +12,8 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
   imports: [
     LoaderComponent,
     NgIf,
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './voyage-detail.component.html',
   styleUrl: './voyage-detail.component.scss'
